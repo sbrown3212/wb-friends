@@ -8,10 +8,22 @@ export default function App() {
   return (
     <div>
       <label htmlFor="picture">Picture:</label>
-      <input type="text" name="picture" id="picture" />
+      <input 
+        id="picture" 
+        type="text" 
+        name="picture" 
+        value={picture} 
+        onChange={(e) => setPicture(e.target.value)}
+      />
 
       <label htmlFor="name">Name:</label>
-      <input type="text" name="name" id="name" />
+      <input 
+        id="name" 
+        type="text" 
+        name="name" 
+        value={name} 
+        onChange={(e) => setName(e.target.value)}
+      />
 
       <button>Add Friend</button>
     </div>
