@@ -5,6 +5,23 @@ export default function App() {
   const [picture, setPicture] = useState('');
   const [name, setName] = useState('');
 
+  const addFriend = () => {
+    // My solution
+    setFriends([...friends, {picture: picture, name: name}]);
+
+    // // Lab instructions solution
+    // const newFriends = [...friends];
+    // newFriends.push({picture: picture, name: name});
+    // setFriends(newFriends);
+
+    setPicture('');
+    setName('');
+  };
+
+  console.log(`Value for friends on state:`, friends);
+  console.log(`Value for picture on state:`, picture);
+  console.log(`Value for name on state:`, name);
+
   return (
     <div>
       <label htmlFor="picture">Picture:</label>
@@ -25,7 +42,7 @@ export default function App() {
         onChange={(e) => setName(e.target.value)}
       />
 
-      <button>Add Friend</button>
+      <button onClick={addFriend}>Add Friend</button>
     </div>
   );
 }
