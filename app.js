@@ -11,8 +11,11 @@ app.use(express.urlencoded({ extended: false }));
 
 const SAVED_FRIENDS = [
   { name: 'Beach Cat', picture: 'https://http.cat/images/301.jpg' },
-  { name: 'Frisbee Dog', picture: 'https://httpstatusdogs.com/img/100.jpg' },
-  { name: 'Wiener Dog', picture: 'https://httpstatusdogs.com/img/405.jpg' },
+  // { name: 'Frisbee Dog', picture: 'https://httpstatusdogs.com/img/100.jpg' }, // link is broken
+  // { name: 'Wiener Dog', picture: 'https://httpstatusdogs.com/img/405.jpg' }, // link is broken
+  { name: 'Floating Cat', picture: 'https://http.cat/images/100.jpg'},
+  { name: 'Processing Cat', picture: 'https://http.cat/images/102.jpg'},
+
 ];
 
 app.get('/api/friends', (req, res) => {
