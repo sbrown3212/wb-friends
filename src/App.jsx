@@ -1,9 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function App() {
   const [friends, setFriends] = useState([]);
   const [picture, setPicture] = useState('');
   const [name, setName] = useState('');
+
+  // Axios.get using async function
+  const getSavedFriends = async () => {
+    const response = await axios.get('/api/friends');
+    setFriends(response.data);
+  }
+
+  useEffect(() => {
+    getSavedFriends();
+  }, []);
+
+  // // Axios.get using .then()
+  // useEffect(() => {
+  //   axios.get('/api/friends').then((response) => {
+  //     setFriends(response.data);
+  //   });
+  // }, [])
 
   const addFriend = () => {
     // My solution
@@ -18,14 +36,14 @@ export default function App() {
     setName('');
   };
 
-  console.log(`Value for friends on state:`, friends);
-  console.log(`Value for picture on state:`, picture);
-  console.log(`Value for name on state:`, name);
+  // console.log(`Value for friends on state:`, friends);
+  // console.log(`Value for picture on state:`, picture);
+  // console.log(`Value for name on state:`, name);
 
   const friendInfo = friends.map((friendObj) => {
     return (
       <div key={friendObj.name}>
-        <img src={friendObj.picture} alt={friendObj.name} />
+        <img src={friendObj.picture} alt={friendObj.name} width='200px'/>
         <span>{friendObj.name}</span>
       </div>
     )
