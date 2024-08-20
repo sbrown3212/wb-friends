@@ -22,6 +22,15 @@ export default function App() {
   console.log(`Value for picture on state:`, picture);
   console.log(`Value for name on state:`, name);
 
+  const friendInfo = friends.map((friendObj) => {
+    return (
+      <div key={friendObj.name}>
+        <img src={friendObj.picture} alt={friendObj.name} />
+        <span>{friendObj.name}</span>
+      </div>
+    )
+  })
+
   return (
     <div>
       <label htmlFor="picture">Picture:</label>
@@ -43,6 +52,8 @@ export default function App() {
       />
 
       <button onClick={addFriend}>Add Friend</button>
+
+      {friendInfo}
     </div>
   );
 }
